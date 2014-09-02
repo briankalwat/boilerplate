@@ -1,0 +1,98 @@
+@if $use-copy == true {
+
+/* ============================================================
+
+    $PARAGRAPHS
+
+============================================================ */
+
+  p {
+    font-family: $base-copy-font;
+    font-size: $font-size;
+    line-height: $line-height;
+    margin-bottom: $base-spacing-unit/2;
+
+    .section--primary &, 
+    .section--secondary &, 
+    .section--tertiary &, 
+    .section--medium &,
+    .section--dark & {
+      color: $light-color;
+    }
+
+    .section--light & {
+      color: $dark-color;
+    }
+  }
+
+  b, strong {
+    font-weight: 600;
+  }
+
+  .text--constrained {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 860px;
+  }
+
+
+
+
+/* ============================================================
+
+    $SMALL
+
+============================================================ */
+
+  small {
+    display: block;
+    font-family: $base-copy-font;
+    font-size: $font-size*.8;
+    line-height: $line-height*.8;
+    font-weight: 700;
+    margin-bottom: $base-spacing-unit/2;
+
+    a {
+      font-size: $font-size*.8;
+      line-height: $line-height*.8;
+    }
+
+    .section--primary &,
+    .section--secondary &,
+    .section--tertiary &,
+    .section--medium &,
+    .section--dark & {
+      color: $light-color;
+
+      a {
+        color: $light-color;
+      }
+    }
+  }
+
+
+
+
+/* ============================================================
+
+    $ASIDE
+
+============================================================ */
+
+  aside {
+    
+  }
+
+
+
+
+/* ============================================================
+
+    $FONT AWESOME OVERRIDES
+
+============================================================ */
+
+
+
+
+}

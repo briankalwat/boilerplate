@@ -1,0 +1,295 @@
+/* ============================================================
+
+    $RADIUS
+
+    creates radius based off of size value or percentage
+
+    @param radius        :  px, em, %
+
+    Used in sass:
+
+    .className {
+        @include radius(7px);
+    }
+
+============================================================ */
+
+@mixin radius($radius) {
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+
+
+
+/* ============================================================
+
+    $CIRCLE
+
+    creates a circle
+
+    @param size        :  px, em
+
+    Used in sass:
+
+    .className:before {
+        @include circle(10px);
+    }
+
+============================================================ */
+
+@mixin circle($size){
+    content: "";
+    width: $size;
+    height: $size;
+    @include radius(50%);
+}
+
+%circle{
+    @include circle($base-spacing-unit);
+}
+
+
+
+
+
+/* ============================================================
+
+    $CHECKMARK
+
+    creates a checkmark
+
+    @param size         :  px, em, rem
+    @param color        :  String, hex, rgb, rgba
+
+    Used in sass:
+
+    .className:before {
+        @include checkmark(10px, aliceblue);
+    }
+
+============================================================ */
+
+@mixin checkmark($size, $color){
+
+    // Add a block-level blank space
+    content:"";
+    display:block;
+
+    // Make it a small rectangle so the border will create an L-shape
+    width: $size/2 ;
+    height: $size ;
+
+    // Add a border on the bottom and left, creating that 'L'
+    border: solid $color;
+    border-width: 0 $size/4 $size/4 0;
+
+    // Rotate the L 45 degrees to turn it into a checkmark
+    @include rotate(45deg);
+}
+
+%checkmark {
+    @include checkmark($base-spacing-unit, $brand-color);
+}
+
+
+
+
+
+/*============================================================
+
+    $TRIANGLE
+
+    creates a triangle
+
+    @param width           :  px, em
+    @param height          :  px, em
+    @param direction       :  up, down, left, right
+    @param color           :  hex, rgb, rgba
+
+    Used in sass:
+
+    .className:before {
+        @include triangle(10px, 8px, right, aliceblue);
+    }
+
+============================================================ */
+
+// [todo] -write a rounded corner mixin for triangles
+
+@mixin triangle($width, $height, $direction, $color) {
+
+    // Add a block-level blank space
+    content: "";
+    display: block;
+
+    width: 0;
+    height: 0;
+
+    // Right
+    @if $direction == right {
+        border-top: $height * .57142 solid transparent;
+        border-bottom: $height * .57142 solid transparent;
+        border-left: $width solid $color;
+    }
+    // Left
+
+    @if $direction == left {
+        border-top: $height * .57142 solid transparent;
+        border-bottom: $height * .57142 solid transparent;
+        border-right: $width solid $color;
+    }
+
+    // Up
+    @if $direction == up {
+        border-left: $width * .57142 solid transparent;
+        border-right: $width * .57142 solid transparent;
+        border-bottom: $height solid $color;
+    }
+
+    // Down
+    @if $direction == down {
+        border-left: $width * .57142 solid transparent;
+        border-right: $width * .57142 solid transparent;
+        border-top: $height solid $color;
+    }
+
+
+}
+
+%triangle {
+    @include triangle($base-spacing-unit, $base-spacing-unit, right, $brand-color);
+}
+
+
+
+@mixin rounded-triangle($width, $direction, $color, $radius) {
+    width: $width;
+    height: $width;
+    background-color: $color;
+    @include radius( 0 $radius 0 0);
+    text-align: left;
+    position: absolute;
+
+    $rotation: 30!default;
+    $translate: -63%, -38%!default;
+
+    @if $direction == 'up'{
+        $rotation: 60;
+        $translate: -27%, 8%;
+    } @elseif $direction == 'down'{
+        $rotation: 180;
+        $translate: 89%, 23%;
+    } @elseif $direction == 'right'{
+        $rotation: 30;
+        $translate: -63%, -38%;
+    } @elseif $direction == 'left'{
+        $rotation: 210;
+        $translate: 94%, 4%;
+    }
+
+    @include vendor(transform,  rotate(#{$rotation}deg) skewX(-30deg) scale(1,.866) translate($translate)); //normal
+
+
+    &:before, &:after {
+        content: "";
+        position: absolute;
+        width: $width;
+        height: $width;
+        background-color: $color;
+        border-top-right-radius: $radius;
+    }
+
+
+    &:before {
+        // display: none;
+        @include vendor(transform, rotate(-135deg) skewX(-43deg) scale(1.414,.75) translate(0,-50%) );
+        background-color: $color;
+    }
+    &:after {
+        // display: none;
+        @include vendor(transform, rotate(135deg) skewY(-43deg) scale(.75,1.414) translate(50%) );
+        background-color: $color;
+
+    }
+}
+
+
+
+/*============================================================
+
+    $ARROW
+
+    creates a border arrow
+
+    @param direction       :  up, down, left, right
+    @param size            :  px, em
+    @param color           :  hex, rgb, rgba
+    @param thickness       :  px, em
+
+    Used in sass:
+
+    .className:before {
+        @include arrow(right, 10px, aliceblue, 2px);
+    }
+
+============================================================ */
+
+@mixin arrow($direction, $size, $color, $thickness: $border-size){
+
+    // Add a block-level blank space
+    content:"";
+    display:block;
+
+    // Make it a small rectangle so the border will create an L-shape
+    width: $size;
+    height: $size;
+
+    // set border color
+    border: solid $color;
+
+    // Add a border on the top and right
+    border-width:  $thickness 0 0 $thickness;
+
+    @if $direction == up {
+
+        // Rotate the L 45 degrees to turn it into a top arrow
+        @include rotate(45deg);
+
+        // Position in the middle
+        margin-top: $size * .5;
+
+    }
+
+    @if $direction == down {
+
+        // Rotate the L 225 degrees to turn it into a down arrow
+        @include rotate(225deg);
+
+        // Position in the middle
+        margin-top: -$size * .5;
+
+    }
+
+    @if $direction == right {
+
+        // Rotate the L 135 degrees to turn it into a right arrow
+        @include rotate(135deg);
+
+        // Position in the middle
+        margin-left: -$size * .5;
+
+    }
+
+    @if $direction == left {
+
+        // Rotate the L -45 degrees to turn it into a left arrow
+        @include rotate(-45deg);
+
+        // Position in the middle
+        margin-left: $size * .5;
+    }
+
+
+}

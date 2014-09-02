@@ -1,0 +1,139 @@
+/* ============================================================
+
+    $FLOATING
+
+    Used to position an element horizontally and vertically
+    regardless of internal content.
+
+    @bugs
+        if the element is too large for the container, the
+        psuedo element can push the content to below the
+        parent container.
+
+
+    @param vertical         : top, middle, bottom
+    @param horizontal       : left, center, right
+    @param child            : String
+
+
+    Used in markup:
+
+    <div class="container">
+        <div class="floated">
+            <!-- content goes here -->
+        </div>
+    </div>
+
+    Used in sass:
+
+    .container {
+        @include floating(middle, center, floated);
+    }
+
+============================================================ */
+
+@mixin floating($vertical, $horizontal, $child: 'floated') {
+
+    text-align: $horizontal;
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: $vertical;
+        margin-right: -0.25em;
+    }
+
+    .#{$child}{
+        display: inline-block;
+        vertical-align: $vertical;
+    }
+
+}
+
+
+
+
+/* ============================================================
+
+    $ROTATE
+
+    Used to rotate an element with multiple browser support
+
+    @param degree         :  0deg
+
+    Used in sass:
+
+    .className {
+        @include rotate(45deg)
+    }
+
+============================================================ */
+
+@mixin rotate($degree) {
+    // IE 9
+    -ms-transform: rotate($degree);
+    // Opera
+    -o-transform: rotate($degree);
+    // Safari and Chrome
+    -webkit-transform: rotate($degree);
+    transform: rotate($degree);
+}
+
+
+
+
+/* ============================================================
+
+    $COLUMNS
+
+    Used to generate columns in text
+
+    @param count         :  Number
+    @param gap           :  px, em
+
+    Used in sass:
+
+    .className {
+        @include columns(2, 10px)
+    }
+
+============================================================ */
+
+@mixin columns($count, $gap) {
+    -moz-column-count: $count;
+    -webkit-column-count: $count;
+    column-count: $count;
+
+    -moz-column-gap: $gap;
+    -webkit-column-gap: $gap;
+    column-gap: $gap;
+}
+
+@mixin _alignment_setup($namespace: "") {
+
+  /*
+
+  Center
+
+  */
+  .#{$namespace}centered        { text-align: center; * { text-align: center; } }
+
+  /*
+
+  Right
+
+  */
+  .#{$namespace}right       { text-align: right; * { text-align: right; }  }
+
+  /*
+
+  Left
+
+  */
+  .#{$namespace}left       { text-align: left; * { text-align: left; }  }
+
+  .#{$namespace}float--left { float: left}
+  .#{$namespace}float--right { float: right}
+
+
+}

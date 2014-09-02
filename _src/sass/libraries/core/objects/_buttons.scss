@@ -1,0 +1,100 @@
+@if $use-buttons == true {
+
+	.btn {
+		display: inline-block;
+		font-size: $button-size*1.1;
+		font-weight: 600;
+		line-height: 0px;
+		letter-spacing: -.5px;
+		text-decoration: none;
+		border: $button-size/6 solid lighten($cta-color, 3);
+		padding: ($button-size*1.3 - 1) $button-size*3 ($button-size*1.3 + 1);
+	
+		&:hover {
+			background: lighten($cta-color, 3);
+			color: $light-color;
+		}
+
+		.section--primary &,
+        .section--secondary &,
+        .section--tertiary & {
+        	color: $light-color;
+			border-color: $light-color;
+
+			&:hover {
+				color: $cta-color;
+				background: $light-color;
+			}
+        }
+
+        .section--medium & {
+        	color: $light-color;
+        	border-color: $light-color;
+
+        	&:hover {
+        		color: $medium-color;
+        		background: $light-color;
+        	}
+        }
+
+        .section--dark & {
+
+        	&:hover {
+        		color: $light-color;
+        		background: lighten($cta-color, 3);
+        	}
+        }
+	}
+
+	.btn--filled {
+		@extend .btn;
+		background: $cta-color;
+		border-color: $cta-color;
+		color: $light-color;
+
+		&:hover {
+			background: darken($cta-color, 10);
+			border-color: darken($cta-color, 10);
+		}
+
+		.section--primary &,
+		.section--secondary &,
+		.section--tertiary &,
+		.section--medium &,
+		.section--dark & {
+			background: $light-color;
+			border-color: $light-color;
+
+			&:hover {
+				background: $light-color;
+				color: $cta-color;
+			}
+		}
+
+		.section--primary & {
+			color: $primary-color;
+		}
+
+		.section--secondary & {
+			color: $secondary-color;
+		}
+
+		.section--tertiary & {
+			color: $tertiary-color;
+		}
+
+		.section--medium & {
+			color: $medium-color;
+		}
+
+		.section--dark & {
+			color: $dark-color;
+		}
+	}
+
+	.btn--pill {
+		@extend .btn;
+		@include radius($button-size*3);
+	}
+
+}

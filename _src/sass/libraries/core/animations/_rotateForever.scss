@@ -1,0 +1,15 @@
+@mixin rotateForever($duration: .85s) {
+  @include animation(rotateForever $duration linear infinite);
+
+  @at-root {
+    @include keyframes(rotateForever) {
+      0% {
+        @include rotate(0deg);
+      }
+      100% {
+        @include rotate(360deg);
+      }
+    }
+  }
+
+}

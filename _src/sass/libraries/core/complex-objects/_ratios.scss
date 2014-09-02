@@ -1,0 +1,104 @@
+@if $use-ratios == true{
+
+    .ratio {
+        padding: 0;
+        margin: 0;
+        margin-bottom: $base-spacing-unit;
+        list-style: none;
+
+        .ratio__item {
+            display:inline-block;
+            z-index: 1;
+            width:100%;
+            @if $global-border-box == false{
+                @include vendor(box-sizing, border-box);
+            }
+        }
+    }
+
+    @include _ratio-setup();
+
+
+
+    /* ============================================================
+
+        If you have set `$responsive` to ‘true’ in `_vars.scss` then you now have
+        access to these classes. You can define at which breakpoint you’d like an
+        element to be a certain size, e.g.:
+
+        `<div class="square  lap-landscape  palm-portrait"> ... </div>`
+
+        This would create a `div` that, at ‘desktop’ sizes, is a square,
+        a horizontal-rectangle at ‘tablet’ sizes, and is a vertical-rectangle
+        at ‘mobile’ sizes.
+
+    ============================================================ */
+
+    @if $responsive == true{
+
+        @include media-query(palm) {
+            @include _ratio-setup("palm-");
+        }
+
+        @include media-query(lap) {
+            @include _ratio-setup("lap-");
+        }
+
+        @include media-query(lap-and-up) {
+            @include _ratio-setup("lap-and-up-");
+        }
+
+        @include media-query(portable) {
+            @include _ratio-setup("portable-");
+        }
+
+        @include media-query(desk) {
+            @include _ratio-setup("desk-");
+        }
+
+    }
+
+    /* ============================================================
+
+        If you have set the additional `$responsive-extra` or `$responsive-extended` variable to ‘true’ in
+        `_vars.scss` then you now have access to the following class available to
+        accomodate much larger screen resolutions.
+
+    ============================================================ */
+
+    @if $responsive-extra == true{
+
+        @include media-query(desk-wide) {
+            @include _ratio-setup("desk-wide-");
+        }
+
+    }
+
+    @if $responsive-extended == true{
+
+        @include media-query(palm-wide) {
+            @include _ratio-setup("palm-wide-");
+        }
+
+        @include media-query(palm-wide-and-up) {
+            @include _ratio-setup("palm-wide-and-up-");
+        }
+
+        @include media-query(handheld) {
+            @include _ratio-setup("handheld-");
+        }
+
+        @include media-query(lap-wide) {
+            @include _ratio-setup("lap-wide-");
+        }
+
+        @include media-query(lap-wide-and-up) {
+            @include _ratio-setup("lap-wide-and-up-");
+        }
+
+        @include media-query(anchored) {
+            @include _ratio-setup("anchored-");
+        }
+
+    }
+}

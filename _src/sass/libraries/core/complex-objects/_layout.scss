@@ -1,0 +1,121 @@
+@if $use-layout == true {
+
+
+	.floating {
+		@include floating(middle, center, floating__item);
+
+		&.floating--left {
+			text-align: left;
+		}
+
+		&.floating--right {
+			text-align: right;
+		}
+
+		&.floating--top {
+			&:before {
+				vertical-align: top;
+			}
+			.floating__item {
+				vertical-align: top;
+			}
+		}
+
+		&.floating--bottom {
+			&:before {
+				vertical-align: bottom;
+			}
+			.floating__item {
+				vertical-align: bottom;
+			}
+		}
+
+	}
+
+	@include _alignment_setup();
+
+
+
+	/* ============================================================
+
+			If you have set `$responsive` to ‘true’ in `_vars.scss` then you now have
+			access to these classes. You can define at which breakpoint you’d like an
+			element to be a certain size, e.g.:
+
+			`<div class="square  lap-landscape  palm-portrait"> ... </div>`
+
+			This would create a `div` that, at ‘desktop’ sizes, is a square,
+			a horizontal-rectangle at ‘tablet’ sizes, and is a vertical-rectangle
+			at ‘mobile’ sizes.
+
+	============================================================ */
+
+	@if $responsive == true{
+
+			@include media-query(palm) {
+					@include _alignment_setup("palm-");
+			}
+
+			@include media-query(lap) {
+					@include _alignment_setup("lap-");
+			}
+
+			@include media-query(lap-and-up) {
+					@include _alignment_setup("lap-and-up-");
+			}
+
+			@include media-query(portable) {
+					@include _alignment_setup("portable-");
+			}
+
+			@include media-query(desk) {
+					@include _alignment_setup("desk-");
+			}
+
+	}
+
+	/* ============================================================
+
+			If you have set the additional `$responsive-extra` or `$responsive-extended` variable to ‘true’ in
+			`_vars.scss` then you now have access to the following class available to
+			accomodate much larger screen resolutions.
+
+	============================================================ */
+
+	@if $responsive-extra == true{
+
+			@include media-query(desk-wide) {
+					@include _alignment_setup("desk-wide-");
+			}
+
+	}
+
+	@if $responsive-extended == true{
+
+			@include media-query(palm-wide) {
+					@include _alignment_setup("palm-wide-");
+			}
+
+			@include media-query(palm-wide-and-up) {
+					@include _alignment_setup("palm-wide-and-up-");
+			}
+
+			@include media-query(handheld) {
+					@include _alignment_setup("handheld-");
+			}
+
+			@include media-query(lap-wide) {
+					@include _alignment_setup("lap-wide-");
+			}
+
+			@include media-query(lap-wide-and-up) {
+					@include _alignment_setup("lap-wide-and-up-");
+			}
+
+			@include media-query(anchored) {
+					@include _alignment_setup("anchored-");
+			}
+
+	}
+
+}

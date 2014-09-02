@@ -1,0 +1,35 @@
+@if $use-images == true {
+
+	img {
+		display: block;
+		padding: 0px;
+
+		&.float--right {
+			margin: auto auto $base-spacing-unit $base-spacing-unit*1.5;
+		}
+
+		&.float--left {
+			margin: auto $base-spacing-unit*1.5 $base-spacing-unit auto;
+		}
+	}
+
+	.image--fill {
+		@include absolute(top -50px bottom -50px left -50px right -50px);
+		min-width: 110%;
+		min-height: 110%;
+		z-index: 0;
+	}
+
+	.image--fixed {
+		min-width: 110%;
+		min-height: 110%;
+		@include fixed(top -50px bottom -50px left -50px right -50px);
+	}
+
+	.background--cover {
+		background-position: center center;
+		background-size: cover !important;
+		background-repeat: no-repeat;
+	}
+
+}

@@ -1,0 +1,67 @@
+.constrained {
+    max-width: $copy-max-width;
+    margin: auto;
+}
+
+.capitalize {
+    section & {
+        text-transform: capitalize;
+    }
+}
+
+
+.lowercase {
+    section & {
+        text-transform: lowercase;
+    }
+}
+
+
+.uppercase {
+    section & {
+        text-transform: uppercase;
+    }
+}
+
+
+.primary {
+    section & {
+        color: $primary-color;
+        border-color: $primary-color;
+    }
+}
+
+.secondary {
+    section & {
+        color: $secondary-color;
+        border-color: $secondary-color;
+    }
+}
+
+.tertiary {
+    section & {
+        color: $tertiary-color;
+        border-color: $tertiary-color;
+    }
+}
+
+.medium {
+    section & {
+        color: $medium-color;
+        border-color: $medium-color;
+    }
+}
+
+.dark {
+    section & {
+        color: $dark-color;
+        border-color: $dark-color;
+    }
+}
+
+.light {
+    section & {
+        color: $light-color;
+        border-color: $light-color;
+    }
+}

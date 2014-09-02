@@ -1,0 +1,132 @@
+//-----------------------------------------------------------------------//
+// ANIMATE.SCSS
+//
+// With animate.scss you can create beatiful and engaging animation without
+// barely touching any code. Just include a mixin and your good to go!
+
+// DOCUMENATION:
+// Check out the GitHub repo for docs on how to use animate.scss
+//
+// CREDIT:
+// @daneden for the original concept in animate.css
+// @jackilyn for the scss port of Daniel's work
+//
+// LICENSE:
+// WFTPL - http://www.wtfpl.net/
+//
+// Version: 1.0.1
+//-----------------------------------------------------------------------//
+
+//-----------------------------------------------------------------------//
+// This is the main file for animate.scss. All partials and helpers will
+// be pulled into this file by the code below. If you want to decrease
+// the size of this file you can comment out sections below, but remember
+// that due to the nature of mixins it won't hurt your actual performance
+// to leave it all in here!
+//
+// So, without further ado, let's get started!
+//-----------------------------------------------------------------------//
+
+
+//-----------------------------------------------------------------------//
+// HELPERS
+// These are functions that are called from the mixins to setup stuff
+// like duration, fill-mode etc.
+//-----------------------------------------------------------------------//
+
+@import "helpers";
+
+
+%css--smooth {
+	-webkit-transform: translate3d(0,0,0,0);
+	-moz-transform: translate3d(0,0,0,0);
+	-ms-transform: translate3d(0,0,0,0);
+	-o-transform: translate3d(0,0,0,0);
+	transform: translate3d(0,0,0,0);
+}
+
+//-----------------------------------------------------------------------//
+// NUTS 'N BOLTS
+// These are the partials that contain the actual mixins.
+//-----------------------------------------------------------------------//
+
+@import "bounce";
+
+@import "bounceIn";
+@import "bounceInDown";
+@import "bounceInLeft";
+@import "bounceInRight";
+@import "bounceInUp";
+
+@import "bounceOut";
+@import "bounceOutDown";
+@import "bounceOutLeft";
+@import "bounceOutRight";
+@import "bounceOutUp";
+
+@import "fadeIn";
+@import "fadeInDown";
+@import "fadeInDownBig";
+@import "fadeInLeft";
+@import "fadeInLeftBig";
+@import "fadeInRight";
+@import "fadeInRightBig";
+@import "fadeInUp";
+@import "fadeInUpBig";
+
+@import "fadeOut";
+@import "fadeOutDown";
+@import "fadeOutDownBig";
+@import "fadeOutUp";
+@import "fadeOutUpBig";
+@import "fadeOutLeft";
+@import "fadeOutLeftBig";
+@import "fadeOutRight";
+@import "fadeOutRightBig";
+
+@import "flip";
+
+@import "flipInX";
+@import "flipInY";
+@import "flipOutX";
+@import "flipOutY";
+
+@import "hingeLeft";
+@import "hingeRight";
+
+@import "lightSpeedIn";
+@import "lightSpeedOut";
+
+@import "pulse";
+
+@import "rollIn";
+@import "rollOut";
+
+@import "rotateIn";
+@import "rotateInDownLeft";
+@import "rotateInDownRight";
+@import "rotateInUpLeft";
+@import "rotateInUpRight";
+
+@import "rotateOut";
+@import "rotateOutDownLeft";
+@import "rotateOutDownRight";
+@import "rotateOutUpLeft";
+@import "rotateOutUpRight";
+@import "rotateForever";
+
+@import "slideInDown";
+@import "slideInLeft";
+@import "slideInRight";
+@import "slideInUp";
+
+@import "slideOutDown";
+@import "slideOutLeft";
+@import "slideOutRight";
+@import "slideOutUp";
+
+@import "shake";
+@import "swing";
+@import "tada";
+@import "wiggle";
+@import "wobble";

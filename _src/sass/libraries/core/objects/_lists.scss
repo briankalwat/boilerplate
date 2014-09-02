@@ -1,0 +1,30 @@
+@if $use-lists == true {
+
+  ul, ol {
+    display: inline-block;
+  	font-family: $base-copy-font;
+    font-size: $font-size;
+    line-height: $line-height;
+    list-style: none;
+  	margin: 0 0 $base-spacing-unit/2 0;
+
+    li {
+		margin-bottom: $base-spacing-unit/4;
+
+		.section--primary &, 
+	    .section--secondary &, 
+	    .section--tertiary &, 
+	    .section--medium &,
+	    .section--dark & {
+	    	color: $light-color;
+	    }
+    }
+
+    &.bulleted {
+    	list-style: outside;
+    	margin: 0 0 $base-spacing-unit/2 $base-spacing-unit/2.5;
+    }
+
+  }
+
+}

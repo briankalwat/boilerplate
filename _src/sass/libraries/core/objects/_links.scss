@@ -1,0 +1,168 @@
+@if $use-links == true {
+
+    a {
+        position: relative;
+        font-family: $base-copy-font;
+        font-size: $font-size;
+        line-height: $line-height;
+        margin-bottom: $base-spacing-unit/3;
+        color: $cta-color;
+        text-decoration: underline;
+        cursor: pointer;
+        @include vendor(transition, all $global-duration $global-function);
+    
+        &:hover {
+            color: darken($cta-color, 20);
+        }
+
+        .section--primary &,
+        .section--secondary & {
+            color: $light-color;
+
+            &:hover {
+                color: $light-color;
+            }
+        }
+
+        .section--tertiary & {
+            color: $cta-color;
+
+            &:hover {
+                color: $cta-color;
+            }
+        }
+
+        .section--light & {
+            color: $light-color;
+
+            &:hover {
+                color: $light-color;
+            }
+        }
+
+        .section--medium & {
+            color: $light-color;
+
+            &:hover {
+                color: $light-color;
+            }
+        }
+
+        .section--dark & {
+            color: $cta-color;
+
+            &:hover {
+                color: $cta-color;
+            }
+        }
+    }
+
+    .link--arrow {
+        display: inline-block;
+        position: relative;
+        padding: 0 $button-size 0 0;
+        font-weight: 600;
+        text-decoration: none;
+
+        &:after {
+            position: absolute;
+            top: 50%;
+            right: 0px;
+            margin-top: -$font-size/5;
+            @include arrow(right, $font-size/2.2, $cta-color, $font-size/7);            
+            @include vendor(transition, all $global-duration $global-function);
+        }
+
+        &:hover {
+            &:after {
+                right: -8px;
+                border-color: darken($cta-color, 20);
+            }
+        }
+
+        &.reverse {
+           
+
+            &:after {
+                
+            }
+
+            &:hover {
+                &:after {
+                    left: -8px;
+                }
+            }
+        }
+        
+        .section--primary &,
+        .section--secondary &,
+        .section--tertiary & {
+            color: $light-color;
+
+            &:after {
+                border-color: $light-color;
+            }
+
+            &:hover {
+                color: $light-color;
+
+                &:after {
+                    border-color: $light-color;
+                }
+            }
+        }
+
+        .section--light & {
+            color: $dark-color;
+
+            &:after {
+                border-color: $dark-color;
+            }
+
+            &:hover {
+                color: $dark-color;
+
+                &:after {
+                    border-color: $dark-color;
+                }
+            }
+        }
+
+        .section--medium & {
+            color: darken($medium-color, 30);
+
+            &:after {
+                border-color: darken($medium-color, 30);
+            }
+
+            &:hover {
+                color: darken($medium-color, 30);
+
+                &:after {
+                    border-color: darken($medium-color, 30);
+                }
+            }
+        }
+
+        .section--dark & {
+            color: $cta-color;
+
+            &:after {
+                border-color: $cta-color;
+            }
+
+            &:hover {
+                color: $cta-color;
+
+                &:after {
+                    border-color: $cta-color;
+                }
+            }
+        }
+    }
+
+    .link--invisible {
+        text-decoration: none;
+    }
+    
+}

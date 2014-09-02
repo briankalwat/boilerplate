@@ -1,0 +1,17 @@
+@if $use-iframes == true {
+
+	/* ============================================================
+
+			Fix for responsive iframe videos (specifically YouTube)
+
+	============================================================ */
+
+	section iframe,
+	section object,
+	section embed {
+		position: relative;
+		overflow: hidden;
+		max-width: 100%;
+		margin-bottom: $base-spacing-unit/2;
+	}
+}

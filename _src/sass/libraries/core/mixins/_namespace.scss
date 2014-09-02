@@ -1,0 +1,12 @@
+@mixin namespace($name) {
+	.#{$name} {
+		@content
+	};
+	@each $state in palm, palm-wide, palm-wide-and-up, handheld, lap, lap-and-up, lap-wide, lap-wide-and-up, lap-wide-and-down, portable, anchored, desk, desk-wide{
+		@include media-query(#{$state}) {
+			.#{$state}-#{$name} {
+				@content
+			};
+		};
+	}
+}

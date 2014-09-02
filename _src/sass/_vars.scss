@@ -1,0 +1,124 @@
+/* ------------------------------------------------------------------------------
+     
+     $COLORS
+
+ ------------------------------------------------------------------------------ */
+$brand-color: 		#d35400;
+$primary-color:    	$brand-color;
+$secondary-color:  	#34495e;
+$tertiary-color:   	darken($secondary-color, 10);
+
+$cta-color: 		$primary-color;
+
+$dark-color: 		darken($secondary-color, 18)!default;
+$medium-color: 		#85898F!default;
+$light-color: 		white!default;
+
+$facebook:	    	#42599e!default;
+$twitter:	   	    #55acee!default;
+$google:           	#DD4B39!default;
+$instagram:	    	#3f729b!default;
+
+
+
+
+/* ------------------------------------------------------------------------------
+     
+     $FONTS
+
+ ------------------------------------------------------------------------------ */
+
+$base-heading-font:   	"museo-slab",serif!default;
+$base-copy-font: 		"pt-sans",sans-serif!default;
+
+$font-size:           22px!default;
+$line-height:         30px!default;
+
+$h1:      ($font-size * 3.2)!default;
+$h2:      ($font-size * 2.2)!default;
+$h3:      ($font-size * 1.7)!default;
+$h4:      ($font-size * 1.4)!default;
+$h5:      ($font-size * 1.3)!default;
+$h6:      ($font-size * 1.1)!default;
+
+$h1-height:      ($line-height * 1.8)!default;
+$h2-height:      ($line-height * 1.5)!default;
+$h3-height:      ($line-height * 1.4)!default;
+$h4-height:      ($line-height * 1.2)!default;
+$h5-height:      ($line-height * 1.1)!default;
+$h6-height:      ($line-height)!default;
+
+
+
+
+/* ------------------------------------------------------------------------------
+     
+     $LAYOUT
+
+ ------------------------------------------------------------------------------ */
+
+$base-spacing-unit: 60px!default;
+$max-width: 		1280px!default;
+$copy-max-width: 	900px!default;
+
+
+
+
+/* ------------------------------------------------------------------------------
+     
+     $UI
+
+ ------------------------------------------------------------------------------ */
+
+$border-radius: 	2px!default;
+$border-size: 		3px!default;
+$button-size: 		20px!default;
+
+
+
+
+/* ------------------------------------------------------------------------------
+    
+    $TRANSITIONS
+
+------------------------------------------------------------------------------ */
+
+$global-duration:      .1s!default;
+$global-function:      ease-in-out!default;
+$global-delay:         .2s!default;
+
+
+
+
+/* ------------------------------------------------------------------------------
+    
+    $PREFIXES
+
+------------------------------------------------------------------------------ */
+
+$prefixes:             (webkit moz ms o spec)!default;
+$prefix-for-webkit:    true!default;
+$prefix-for-mozilla:   true!default;
+$prefix-for-microsoft: true!default;
+$prefix-for-opera:     true!default;
+$prefix-for-spec:      true!default; // required for keyframe mixin
+
+
+
+
+
+/* ------------------------------------------------------------------------------
+    
+    $MEDIA-QUERIES
+
+------------------------------------------------------------------------------ */
+
+$palm-wide-start:   481px;
+$lap-start:         769px;
+$lap-wide-start:    961px;
+$desk-start:        1025px;
+$desk-wide-start:   1401px;
+
+
+
+

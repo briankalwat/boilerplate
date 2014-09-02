@@ -1,0 +1,29 @@
+@if $use-grids == true {
+
+	.grid, .grid__item {
+		position: relative;
+		@include vendor(transition, all $global-duration $global-function);
+	}
+
+	.grid {
+		@include media-query(handheld) {
+			margin-left: -$base-spacing-unit/3;
+		}
+	}
+
+	.grid__item {
+		@include media-query(handheld) {
+			padding-left: $base-spacing-unit/3;
+			margin-bottom: $base-spacing-unit/2;
+		}
+	}
+
+	.grid + .grid {
+		margin-top: $base-spacing-unit;
+
+		@include media-query(handheld) {
+			margin-top: $base-spacing-unit/3;
+		}
+	}
+
+}

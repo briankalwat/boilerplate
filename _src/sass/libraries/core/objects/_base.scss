@@ -1,0 +1,164 @@
+html {
+    font-size: 100%;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+
+
+// Used to make sure no accidental wide margin/img breaks bounds
+body {
+  overflow-x: hidden;
+  // There's a small bug in webkit that requires a CSS3 property to be set on an element.
+  // Read more about it at http://bit.ly/NEdoDq
+}
+
+
+
+
+*::selection {
+  background: lighten($medium-color, 30); /* WebKit/Blink Browsers */
+}
+*::-moz-selection {
+  background: lighten($medium-color, 30); /* Gecko Browsers */
+}
+
+
+
+
+/* ============================================================
+
+    $SHELL
+
+============================================================ */
+
+.shell {
+    position: relative;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: $base-spacing-unit*2 $base-spacing-unit*2;
+
+    @include media-query(handheld) {
+        padding: $base-spacing-unit*1.25 $base-spacing-unit/2;
+    }
+}
+
+
+
+
+/* ============================================================
+
+    $HORIZONTAL RULES
+
+============================================================ */
+
+hr {
+    border: 0px solid transparent;
+    border-top: $border-size*2 solid lighten($medium-color, 40);
+
+    &.short {
+        margin: $base-spacing-unit auto;
+        max-width: $base-spacing-unit*2;
+    }
+
+    &.hidden {
+        border-width: 0px;
+    }
+
+    .section--dark & {
+        border-color: darken($secondary-color, 15);
+    }
+}
+
+
+
+
+/* ============================================================
+
+    $DISPLAY/FLOAT UTILITIES
+
+============================================================ */
+
+@include namespace(inline) {
+    display: inline-block;
+    * {
+        display: inline-block;
+    }
+}
+
+@include namespace(block) {
+    display: block;
+    * {
+        display: block;
+    }
+}
+
+@include namespace(float--left) {
+    float: left !important;
+}
+
+@include namespace(float--right) {
+    float: right !important;
+}
+
+@include namespace(float--none) {
+    float: none !important;
+}
+
+
+
+
+/* ============================================================
+
+    $ALIGNMENT UTILITIES
+
+============================================================ */
+
+@include namespace(centered) {
+    text-align: center; 
+
+    * { 
+        text-align: center; 
+    }
+
+    p {
+        display: inline-block;
+    }
+}
+
+@include namespace(right) {
+    text-align: right; 
+
+    * { 
+        text-align: right; 
+    }
+
+    p {
+        display: inline-block;
+    }
+}
+
+@include namespace(left) {
+    text-align: left; 
+
+    * { 
+        text-align: left; 
+    }
+}
+
+
+
+
+/* ============================================================
+
+    $SHAPE UTILITIES
+
+============================================================ */
+
+.round {
+  @include radius(50%);
+}
+
+.blurred {
+    -webkit-filter: blur(25px);
+}
