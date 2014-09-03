@@ -1,0 +1,13 @@
+{
+  "name": "boilerplate",
+  "version": "0.0.1",
+  "homepage": "https://github.com/briankalwat/boilerplate",
+  "authors": [
+    "Brian Kalwat <brian@briankalwat.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true
+}
