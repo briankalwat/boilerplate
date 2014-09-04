@@ -5,26 +5,26 @@
 		margin: 0 auto;
 		width: 100%;
 		overflow: hidden;
+	}
 
-		&.section--primary {
-			background: $primary-color;
-		}
+	.section--primary {
+		background: $primary-color;
+	}
 
-		&.section--secondary {
-			background: $secondary-color;
-		}
+	.section--secondary {
+		background: $secondary-color;
+	}
 
-		&.section--tertiary {
-			background: $tertiary-color;
-		}
+	.section--tertiary {
+		background: $tertiary-color;
+	}
 
-		&.section--medium {
-			background: $medium-color;
-		}
+	.section--medium {
+		background: $medium-color;
+	}
 
-		&.section--dark {
-			background: $dark-color;
-		}
+	.section--dark {
+		background: $dark-color;
 	}
 
 }
